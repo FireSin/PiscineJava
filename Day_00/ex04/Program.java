@@ -36,24 +36,20 @@ class Program{
 		if (lenghtMas > 10){
 			lenghtMas = 10;
 		}
-		int step = printNum[0][1] / 10;
-		int val = printNum[0][1];
-		step++;
 		System.out.println();
 		for (int i = 100; i >= 0; i -= 10) {
 			for (int j = 0; j < lenghtMas; j++) {
 				if(printNum[j][1] * 100 / printNum[0][1] >= i && printNum[j][1] * 100 / printNum[0][1] < i + 10){
-					System.out.print(printNum[j][1] + "  ");
+					System.out.print(printNum[j][1] + "\t");
 				}
 				else if(printNum[j][1] * 100 / printNum[0][1] > i){
-					System.out.print("#  ");
+					System.out.print("#\t");
 				}
-			}
-			val -= step;
+			};
 			System.out.println();
 		}
 		for (int i = 0; i < lenghtMas; i++) {
-			System.out.print(mas[printNum[i][0]] + "  ");
+			System.out.print(mas[printNum[i][0]] + "\t");
 		}
 	}
 
