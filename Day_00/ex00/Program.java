@@ -1,3 +1,4 @@
+package Day_00.ex00;
 class Program{
 	public static void main(String[] args) {
 		int n = 479598;
