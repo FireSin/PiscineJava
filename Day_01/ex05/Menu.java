@@ -78,6 +78,7 @@ public class Menu {
                         }
                         break;
                     case (7):
+                        scanner.close();
                         System.exit(0);
                 }
                 System.out.println("------------------------------------------------");
@@ -125,6 +126,7 @@ public class Menu {
                         }
                         break;
                     case (5):
+                        scanner.close();
                         System.exit(0);
                 }
                 System.out.println("------------------------------------------------");
