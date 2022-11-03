@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 
 public class Program {
-    
-    private static final String pathSignature = "/home/artur/Desktop/PiscineJava/Day_02/ex00/src/signature.txt";
-    private static final String pathResult = "/home/artur/Desktop/PiscineJava/Day_02/ex00/src/result.txt";
+
+    private static final String pathSignature = "/home/artur/Desktop/PiscineJava/Day_02/ex00/files/signature.txt";
+    private static final String pathResult = "/home/artur/Desktop/PiscineJava/Day_02/ex00/files/result.txt";
     public static void main(String[] args){
         Map<String, String> signature = addMap(pathSignature);
         Scanner sc = new Scanner(System.in);
@@ -15,8 +15,6 @@ public class Program {
         System.out.print("-> ");
         while (!(inStr = sc.nextLine()).equals("42")){
             try {
-                System.out.println(convertFile2Hex(inStr));
-                System.out.println(convertFile2Hex(inStr).toString());
                 findSignature(signature, convertFile2Hex(inStr).toString());
             } catch (Exception e){
                 System.out.print("-> ");
@@ -26,7 +24,7 @@ public class Program {
         }
         sc.close();
     }
-    
+
     public static StringBuilder convertFile2Hex(String path) throws IOException {
         InputStream is = null;
         try {
@@ -36,9 +34,10 @@ public class Program {
         }
         int bytesCounter = 0;
         int value = 0;
+        int i = 128;
         StringBuilder sbHex = new StringBuilder();
         StringBuilder sbResult = new StringBuilder();
-        while ((value = is.read()) != -1) {
+        while ((value = is.read()) != -1 && i-- > 0) {
             sbHex.append(String.format("%02X", value));
             if (bytesCounter == 15) {
                 sbResult.append(sbHex).append("\n");
@@ -91,7 +90,7 @@ public class Program {
             if (hex.contains(fileSignature.getValue())) {
                 try {
                     fileOutputStream.write(fileSignature.getKey().getBytes());
-                    fileOutputStream.write('\n');
+                    fileOutputStream.write("\n".getBytes());
                 } catch (IOException e) {
                     System.err.println("Ошибка записи файла результатов");
                     System.exit(-1);
