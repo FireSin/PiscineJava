@@ -1,4 +1,4 @@
-package edu.school21.chat.models.logic;
+package edu.school21.chat.models;
 
 import java.util.List;
 import java.util.Objects;
@@ -50,14 +50,6 @@ public class Chatroom {
     }
 
     @Override
-    public String toString() {
-        return "Chatroom{" +
-                "_name='" + _name + '\'' +
-                ", _owner=" + _owner +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Chatroom)) return false;
@@ -68,5 +60,15 @@ public class Chatroom {
     @Override
     public int hashCode() {
         return Objects.hash(get_id(), get_name(), get_owner(), get_messages());
+    }
+
+    @Override
+    public String toString() {
+        return "Chatroom{" +
+                "_id=" + _id +
+                ", _name='" + _name + '\'' +
+                ", _owner=" + _owner +
+                ", _messages=" + _messages +
+                '}';
     }
 }

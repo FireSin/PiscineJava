@@ -4,10 +4,10 @@ CREATE TABLE message
     author_id INTEGER NOT NULL REFERENCES user(id),
     chatroom_id INTEGER NOT NULL REFERENCES chatroom(id),
     text TEXT NOT NULL,
-    Date/time TIMESTAMP
+    date TIMESTAMP
 );
 
-CREATE TABLE user
+CREATE TABLE users
 (
 	id SERIAL PRIMARY KEY,
 	login TEXT NOT NULL,

@@ -1,5 +1,9 @@
-package edu.school21.chat.models.logic;
+package edu.school21.chat.models;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Objects;
 
@@ -8,9 +12,9 @@ public class Message {
     private User        _author;
     private Chatroom    _room;
     private String      _text;
-    private String      _time;
+    private Date         _time;
 
-    public Message(long _id, User _author, Chatroom _room, String _text, String _time) {
+    public Message(long _id, User _author, Chatroom _room, String _text, Date _time) {
         this._id = _id;
         this._author = _author;
         this._room = _room;
@@ -50,23 +54,14 @@ public class Message {
         this._text = _text;
     }
 
-    public String get_time() {
+    public Date get_time() {
         return _time;
     }
 
-    public void set_time(String _time) {
+    public void set_time(Date _time) {
         this._time = _time;
     }
 
-    @Override
-    public String toString() {
-        return "Message{" +
-                "_author=" + _author +
-                ", _room=" + _room +
-                ", _text='" + _text + '\'' +
-                ", _time='" + _time + '\'' +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -79,5 +74,16 @@ public class Message {
     @Override
     public int hashCode() {
         return Objects.hash(get_id(), get_author(), get_room(), get_text(), get_time());
+    }
+
+    @Override
+    public String toString() {
+        return "Message{\n" +
+                "_id=" + _id +
+                "\n_author=" + _author +
+                "\n_room=" + _room +
+                "\n_text='" + _text + '\'' +
+                "\n_time=" + new SimpleDateFormat().format(_time) +
+                "\n}";
     }
 }
