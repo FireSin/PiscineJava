@@ -1,8 +1,5 @@
 package edu.school21.printer.logic;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
