@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS product
+(
+	id INTEGER PRIMARY KEY,
+    name CHARACTER(50),
+    price INTEGER
+);
